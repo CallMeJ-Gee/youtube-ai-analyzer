@@ -5,8 +5,8 @@ load_dotenv()
 
 class Config:
     YOUTUBE_API_KEY = os.getenv('YOUTUBE_API_KEY')
-    MAX_VIDEOS = 50
-    UPDATE_FREQUENCY = 6  # hours
+    MAX_VIDEOS = int(os.getenv('MAX_VIDEOS', 50))
+    UPDATE_FREQUENCY = int(os.getenv('UPDATE_FREQUENCY', 6))
     AI_KEYWORDS = [
         'ai generated', 'artificial intelligence', 'machine learning',
         'neural network', 'deep learning', 'synthetic media',
@@ -16,7 +16,7 @@ class Config:
     
     # Advanced analysis settings
     ML_MODEL_PATH = 'ai_detector_model.joblib'
-    CONFIDENCE_THRESHOLD = 0.7
+    CONFIDENCE_THRESHOLD = float(os.getenv('CONFIDENCE_THRESHOLD', 0.7))
     MIN_VIEWS_FOR_ANALYSIS = 1000
     
     # Feature weights for ensemble
